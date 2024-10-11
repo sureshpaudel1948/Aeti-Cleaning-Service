@@ -256,40 +256,6 @@ useEffect(() => {
                 <option value="deep">Deep Cleaning</option>
               </select>
             </div>
-            <div className="form-group">
-              <label>Service Date:</label>
-              <input type="date" name="service_date" required />
-            </div>
-            <div className="form-group">
-              <label>Service Time:</label>
-              <input type="time" name="service_time" required />
-            </div>
-            <div className="form-group">
-              <label>Address:</label>
-              <textarea
-                name="address"
-                placeholder="Enter your address"
-                required
-              ></textarea>
-            </div>
-            <div className="form-group">
-              <label>Additional Instructions:</label>
-              <textarea
-                name="instructions"
-                placeholder="Enter any special requests"
-              ></textarea>
-            </div>
-            <div className="form-group">
-              <label>Payment Method:</label>
-              <select name="payment_method" required>
-                <option value="">Select Payment Method</option>
-                <option value="cash">Cash</option>
-                <option value="credit">Credit Card</option>
-                <option value="eft">EFT</option>
-                <option value="cheque">Cheque</option>
-                <option value="invoice">Invoice</option>
-              </select>
-            </div>
 
             {/* Conditional rendering of Residential Cleaning Quote Form */}
             {serviceType === "residential" && (
@@ -515,13 +481,49 @@ useEffect(() => {
                 </div>
 
                 <button className="calculate-btn" onClick={calculateTotal}>
-                  Calculate Quote
+                  Calculate Total Quote
                 </button>
 
                 {total > 0 && <h3>Total Quote: ${total}</h3>}
               </div>
             )}
 
+            <div className="form-group">
+              <label>Service Date:</label>
+              <input type="date" name="service_date" required />
+            </div>
+            <div className="form-group">
+              <label>Service Time:</label>
+              <input type="time" name="service_time" required />
+            </div>
+            <div className="form-group">
+              <label>Address:</label>
+              <textarea
+                name="address"
+                placeholder="Enter your address"
+                required
+              ></textarea>
+            </div>
+            <div className="form-group">
+              <label>Additional Instructions:</label>
+              <textarea
+                name="instructions"
+                placeholder="Enter any special requests"
+              ></textarea>
+            </div>
+            <div className="form-group">
+              <label>Payment Method:</label>
+              <select name="payment_method" required>
+                <option value="">Select Payment Method</option>
+                <option value="cash">Cash</option>
+                <option value="credit">Credit Card</option>
+                <option value="eft">EFT</option>
+                <option value="cheque">Cheque</option>
+                <option value="invoice">Invoice</option>
+              </select>
+            </div>
+
+            
             <button type="submit">Submit Booking</button>
           </form>
         </>
