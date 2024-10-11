@@ -1,0 +1,59 @@
+/* src/pages/Contact.css */
+
+* {
+  box-sizing: border-box;
+}
+
+.contact {
+  margin: 15px;
+
+   display: flex;
+  flex-direction: column;
+  /* align-items: center;  */
+  padding: 2rem;
+  background-color: white; /* White background for the contact page */
+  text-align: center; /* Center align the content */
+}
+
+.contact h1 {
+  color: #000000; /* Blood-red color for the heading */
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.contact form {
+  width: 100%;
+  margin: 10px;
+  display: flex;
+  flex-direction: column; /* Stack form elements vertically */
+  align-items: center; /* Center align form elements */
+}
+
+.contact input,
+.contact textarea {
+  width: 80%; /* Responsive width */
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 5px; /* Rounded corners */
+  transition: border-color 0.3s; /* Transition for focus effect */
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  border-color: #910707; /* Blood-red border on focus */
+}
+
+.contact button {
+  background-color: #c50a0a; /* Blood-red button */
+  color: white; /* White text on button */
+  padding: 1rem 2rem; /* Button padding */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s; /* Transition for hover effect */
+}
+
+.contact button:hover {
+  background-color: #ff0808; /* Darker blood-red on hover */
+}
