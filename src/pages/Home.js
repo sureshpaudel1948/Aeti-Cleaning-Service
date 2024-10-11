@@ -327,9 +327,9 @@ useEffect(() => {
                   />
                 </div>
 
-                <button className="calculate-btn" onClick={calculateTotal}>
+                {/* <button className="calculate-btn" onClick={calculateTotal}>
                   Calculate Total Quote
-                </button>
+                </button> */}
 
                 {total > 0 && <h3>Total Quote: ${total}</h3>}
               </div>
@@ -403,9 +403,9 @@ useEffect(() => {
                   />
                 </div>
 
-                <button className="calculate-btn" onClick={calculateTotal}>
+                {/* <button className="calculate-btn" onClick={calculateTotal}>
                   Calculate Total Quote
-                </button>
+                </button> */}
 
                 {total > 0 && <h3>Total Quote: ${total}</h3>}
               </div>
@@ -480,9 +480,9 @@ useEffect(() => {
                   </select>
                 </div>
 
-                <button className="calculate-btn" onClick={calculateTotal}>
+                {/* <button className="calculate-btn" onClick={calculateTotal}>
                   Calculate Total Quote
-                </button>
+                </button> */}
 
                 {total > 0 && <h3>Total Quote: ${total}</h3>}
               </div>
