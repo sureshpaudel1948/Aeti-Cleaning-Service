@@ -39,7 +39,10 @@ const Home = () => {
     e.preventDefault(); // Prevent form from reloading the page
 
     // Calculate the total price before sending the email
-    const totalPrice =calculateTotal();
+    const totalPrice = calculateTotal();
+
+    // Add the total price to a hidden input field (already in the form)
+    document.getElementById("total_quote_input").value = totalPrice;
 
     // Append the total price and other service-specific details to the form data
     const formData = new FormData(e.target);
@@ -115,23 +118,23 @@ const Home = () => {
     }
     setTotal(totalPrice);
     return totalPrice; // Return the total price directly
-};
+  };
 
-useEffect(() => {
-  calculateTotal(); // Calculate total whenever input values change
-}, [
-  carpets,
-  couches,
-  smallCurtains,
-  rugs,
-  bedMattresses,
-  windowCurtains,
-  doorCurtains,
-  bathrooms,
-  groutCleaning,
-  kitchenHallwayCleaning,
-  mouldGroutCleaning,
-]);
+  useEffect(() => {
+    calculateTotal(); // Calculate total whenever input values change
+  }, [
+    carpets,
+    couches,
+    smallCurtains,
+    rugs,
+    bedMattresses,
+    windowCurtains,
+    doorCurtains,
+    bathrooms,
+    groutCleaning,
+    kitchenHallwayCleaning,
+    mouldGroutCleaning,
+  ]);
 
   return (
     <div className="home">
@@ -270,7 +273,7 @@ useEffect(() => {
                     type="number"
                     id="carpets"
                     value={carpets}
-                    onChange={(e) => setCarpets(Number(e.target.value))}
+                    onChange={(e) => setCarpets(Math.max(0, Number(e.target.value)))}
                     placeholder="Enter number of rooms"
                   />
                 </div>
@@ -283,7 +286,7 @@ useEffect(() => {
                     type="number"
                     id="couches"
                     value={couches}
-                    onChange={(e) => setCouches(Number(e.target.value))}
+                    onChange={(e) => setCouches(Math.max(0, Number(e.target.value)))}
                     placeholder="Enter number of couch seats"
                   />
                 </div>
@@ -296,7 +299,7 @@ useEffect(() => {
                     type="number"
                     id="smallCurtains"
                     value={smallCurtains}
-                    onChange={(e) => setSmallCurtains(Number(e.target.value))}
+                    onChange={(e) => setSmallCurtains(Math.max(0, Number(e.target.value)))}
                     placeholder="Enter number of small curtains"
                   />
                 </div>
@@ -309,7 +312,7 @@ useEffect(() => {
                     type="number"
                     id="rugs"
                     value={rugs}
-                    onChange={(e) => setRugs(Number(e.target.value))}
+                    onChange={(e) => setRugs(Math.max(0, Number(e.target.value)))}
                     placeholder="Enter number of rugs"
                   />
                 </div>
@@ -322,14 +325,10 @@ useEffect(() => {
                     type="number"
                     id="bedMattresses"
                     value={bedMattresses}
-                    onChange={(e) => setbedMattresses(Number(e.target.value))}
+                    onChange={(e) => setbedMattresses(Math.max(0, Number(e.target.value)))}
                     placeholder="Enter number of bed mattresses"
                   />
                 </div>
-
-                {/* <button className="calculate-btn" onClick={calculateTotal}>
-                  Calculate Total Quote
-                </button> */}
 
                 {total > 0 && <h3>Total Quote: ${total}</h3>}
               </div>
@@ -346,7 +345,7 @@ useEffect(() => {
                     type="number"
                     id="carpets"
                     value={carpets}
-                    onChange={(e) => setCarpets(Number(e.target.value))}
+                    onChange={(e) => setCarpets(Math.max(0, Number(e.target.value)))}
                     placeholder="Enter number of carpets"
                   />
                 </div>
@@ -359,7 +358,7 @@ useEffect(() => {
                     type="number"
                     id="couches"
                     value={couches}
-                    onChange={(e) => setCouches(Number(e.target.value))}
+                    onChange={(e) => setCouches(Math.max(0, Number(e.target.value)))}
                     placeholder="Enter number of couch seats"
                   />
                 </div>
@@ -372,7 +371,7 @@ useEffect(() => {
                     type="number"
                     id="smallCurtains"
                     value={smallCurtains}
-                    onChange={(e) => setSmallCurtains(Number(e.target.value))}
+                    onChange={(e) => setSmallCurtains(Math.max(0, Number(e.target.value)))}
                     placeholder="Enter number of small curtains"
                   />
                 </div>
@@ -385,7 +384,7 @@ useEffect(() => {
                     type="number"
                     id="windowCurtains"
                     value={windowCurtains}
-                    onChange={(e) => setWindowCurtains(Number(e.target.value))}
+                    onChange={(e) => setWindowCurtains(Math.max(0, Number(e.target.value)))}
                     placeholder="Enter number of window curtains"
                   />
                 </div>
@@ -398,14 +397,10 @@ useEffect(() => {
                     type="number"
                     id="doorCurtains"
                     value={doorCurtains}
-                    onChange={(e) => setDoorCurtains(Number(e.target.value))}
+                    onChange={(e) => setDoorCurtains(Math.max(0, Number(e.target.value)))}
                     placeholder="Enter number of door curtains"
                   />
                 </div>
-
-                {/* <button className="calculate-btn" onClick={calculateTotal}>
-                  Calculate Total Quote
-                </button> */}
 
                 {total > 0 && <h3>Total Quote: ${total}</h3>}
               </div>
@@ -480,13 +475,12 @@ useEffect(() => {
                   </select>
                 </div>
 
-                {/* <button className="calculate-btn" onClick={calculateTotal}>
-                  Calculate Total Quote
-                </button> */}
-
                 {total > 0 && <h3>Total Quote: ${total}</h3>}
               </div>
             )}
+
+            {/* Hidden input to store the total price */}
+            <input type="hidden" name="total_quote" id="total_quote_input" />
 
             <div className="form-group">
               <label>Service Date:</label>
@@ -523,7 +517,6 @@ useEffect(() => {
               </select>
             </div>
 
-            
             <button type="submit">Submit Booking</button>
           </form>
         </>
