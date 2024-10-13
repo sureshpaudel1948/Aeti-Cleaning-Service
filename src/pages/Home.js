@@ -50,26 +50,24 @@ const Home = () => {
 
     // Add additional fields based on service type
     if (serviceType === "residential") {
-      formData.append("carpets", carpets);
-      formData.append("couches", couches);
-      formData.append("smallCurtains", smallCurtains);
-      formData.append("rugs", rugs);
-      formData.append("bedMattresses", bedMattresses);
+      formData.append("carpets", carpets || 0); // Ensure 0 if not filled
+      formData.append("couches", couches || 0);
+      formData.append("smallCurtains", smallCurtains || 0);
+      formData.append("rugs", rugs || 0);
+      formData.append("bedMattresses", bedMattresses || 0);
     } else if (serviceType === "commercial") {
-      formData.append("carpets", carpets);
-      formData.append("couches", couches);
-      formData.append("smallCurtains", smallCurtains);
-      formData.append("windowCurtains", windowCurtains);
-      formData.append("doorCurtains", doorCurtains);
+      formData.append("carpets", carpets || 0);
+      formData.append("couches", couches || 0);
+      formData.append("smallCurtains", smallCurtains || 0);
+      formData.append("windowCurtains", windowCurtains || 0);
+      formData.append("doorCurtains", doorCurtains || 0);
     } else if (serviceType === "deep") {
-      formData.append("bathrooms", bathrooms);
-      formData.append("groutCleaning", groutCleaning ? "Yes" : "No");
-      formData.append(
-        "kitchenHallwayCleaning",
-        kitchenHallwayCleaning ? "Yes" : "No"
-      );
-      formData.append("mouldGroutCleaning", mouldGroutCleaning ? "Yes" : "No");
+      formData.append("bathrooms", bathrooms || 0);
+    formData.append("groutCleaning", groutCleaning ? "Yes" : "No");
+    formData.append("kitchenHallwayCleaning", kitchenHallwayCleaning ? "Yes" : "No");
+    formData.append("mouldGroutCleaning", mouldGroutCleaning ? "Yes" : "No");
     }
+
 
     // Send the email using emailjs
     emailjs
@@ -92,6 +90,7 @@ const Home = () => {
 
     e.target.reset(); // Reset form after submission
   };
+
 
   const calculateTotal = () => {
     let totalPrice = 0;
@@ -272,8 +271,11 @@ const Home = () => {
                   <input
                     type="number"
                     id="carpets"
+                    name="carpets"
                     value={carpets}
-                    onChange={(e) => setCarpets(Math.max(0, Number(e.target.value)))}
+                    onChange={(e) =>
+                      setCarpets(Math.max(0, Number(e.target.value)))
+                    }
                     placeholder="Enter number of rooms"
                   />
                 </div>
@@ -285,8 +287,11 @@ const Home = () => {
                   <input
                     type="number"
                     id="couches"
+                    name="couches"
                     value={couches}
-                    onChange={(e) => setCouches(Math.max(0, Number(e.target.value)))}
+                    onChange={(e) =>
+                      setCouches(Math.max(0, Number(e.target.value)))
+                    }
                     placeholder="Enter number of couch seats"
                   />
                 </div>
@@ -298,8 +303,11 @@ const Home = () => {
                   <input
                     type="number"
                     id="smallCurtains"
+                    name="smallCurtains"
                     value={smallCurtains}
-                    onChange={(e) => setSmallCurtains(Math.max(0, Number(e.target.value)))}
+                    onChange={(e) =>
+                      setSmallCurtains(Math.max(0, Number(e.target.value)))
+                    }
                     placeholder="Enter number of small curtains"
                   />
                 </div>
@@ -311,8 +319,11 @@ const Home = () => {
                   <input
                     type="number"
                     id="rugs"
+                    name="rugs"
                     value={rugs}
-                    onChange={(e) => setRugs(Math.max(0, Number(e.target.value)))}
+                    onChange={(e) =>
+                      setRugs(Math.max(0, Number(e.target.value)))
+                    }
                     placeholder="Enter number of rugs"
                   />
                 </div>
@@ -324,8 +335,11 @@ const Home = () => {
                   <input
                     type="number"
                     id="bedMattresses"
+                    name="bedMattresses"
                     value={bedMattresses}
-                    onChange={(e) => setbedMattresses(Math.max(0, Number(e.target.value)))}
+                    onChange={(e) =>
+                      setbedMattresses(Math.max(0, Number(e.target.value)))
+                    }
                     placeholder="Enter number of bed mattresses"
                   />
                 </div>
@@ -344,8 +358,11 @@ const Home = () => {
                   <input
                     type="number"
                     id="carpets"
+                    name="carpets"
                     value={carpets}
-                    onChange={(e) => setCarpets(Math.max(0, Number(e.target.value)))}
+                    onChange={(e) =>
+                      setCarpets(Math.max(0, Number(e.target.value)))
+                    }
                     placeholder="Enter number of carpets"
                   />
                 </div>
@@ -357,8 +374,11 @@ const Home = () => {
                   <input
                     type="number"
                     id="couches"
+                    name="couches"
                     value={couches}
-                    onChange={(e) => setCouches(Math.max(0, Number(e.target.value)))}
+                    onChange={(e) =>
+                      setCouches(Math.max(0, Number(e.target.value)))
+                    }
                     placeholder="Enter number of couch seats"
                   />
                 </div>
@@ -370,8 +390,11 @@ const Home = () => {
                   <input
                     type="number"
                     id="smallCurtains"
+                    name="smallCurtains"
                     value={smallCurtains}
-                    onChange={(e) => setSmallCurtains(Math.max(0, Number(e.target.value)))}
+                    onChange={(e) =>
+                      setSmallCurtains(Math.max(0, Number(e.target.value)))
+                    }
                     placeholder="Enter number of small curtains"
                   />
                 </div>
@@ -383,8 +406,11 @@ const Home = () => {
                   <input
                     type="number"
                     id="windowCurtains"
+                    name="windowCurtains"
                     value={windowCurtains}
-                    onChange={(e) => setWindowCurtains(Math.max(0, Number(e.target.value)))}
+                    onChange={(e) =>
+                      setWindowCurtains(Math.max(0, Number(e.target.value)))
+                    }
                     placeholder="Enter number of window curtains"
                   />
                 </div>
@@ -396,8 +422,11 @@ const Home = () => {
                   <input
                     type="number"
                     id="doorCurtains"
+                   name="doorCurtains"
                     value={doorCurtains}
-                    onChange={(e) => setDoorCurtains(Math.max(0, Number(e.target.value)))}
+                    onChange={(e) =>
+                      setDoorCurtains(Math.max(0, Number(e.target.value)))
+                    }
                     placeholder="Enter number of door curtains"
                   />
                 </div>
@@ -416,6 +445,7 @@ const Home = () => {
                   </label>
                   <select
                     id="groutCleaning"
+                    name="groutCleaning"
                     value={groutCleaning}
                     onChange={(e) => setGroutCleaning(e.target.value === "yes")}
                   >
@@ -431,6 +461,7 @@ const Home = () => {
                   <input
                     type="number"
                     id="bathrooms"
+                    name="bathrooms"
                     value={bathrooms}
                     onChange={(e) =>
                       setBathrooms(Math.min(Number(e.target.value), 2))
@@ -448,6 +479,7 @@ const Home = () => {
                   </label>
                   <select
                     id="kitchenHallwayCleaning"
+                    name="kitchenHallwayCleaning"
                     value={kitchenHallwayCleaning}
                     onChange={(e) =>
                       setKitchenHallwayCleaning(e.target.value === "yes")
@@ -465,6 +497,7 @@ const Home = () => {
                   </label>
                   <select
                     id="mouldGroutCleaning"
+                    name="mouldGroutCleaning"
                     value={mouldGroutCleaning}
                     onChange={(e) =>
                       setMouldGroutCleaning(e.target.value === "yes")
