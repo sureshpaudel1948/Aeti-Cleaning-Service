@@ -50,6 +50,7 @@ const BookingForm = () => {
 
     const formData = new FormData(e.target);
     formData.append("total_quote", totalPrice);
+    formData.append("service_type", serviceType)
 
     if (serviceType === "residential") {
       formData.append("carpets", carpets || 0);
@@ -74,7 +75,7 @@ const BookingForm = () => {
       .sendForm(
         "service_72gbgi8", // Service ID
         "template_84p0hcy", // Template ID
-        e.target, // form element
+        formData, // form element
         "UmVoIH6pHds8c_SaI" // User ID
       )
       .then(
