@@ -1,6 +1,6 @@
 // src/components/BookingForm.js
 
-import React, { useState } from "react";
+import React, { useState} from "react";
 import "../components/BookNowForm.css";
 import "../components/ResidentialQuoteForm.css";
 import "../components/CommercialQuoteForm.css";
@@ -9,20 +9,27 @@ import "../components/ResidentialQuoteForm.css";
 import emailjs from "emailjs-com";
 import calculateTotal from "../utils/calculateTotal";
 
-const BookingForm = ({ serviceType, setServiceType }) => {
-  // State for Residential, Commercial, and Deep Cleaning
+const BookingForm = () => {
+    const [serviceType, setServiceType] = useState(""); // State to handle service type selection
+  
+  // State for Residential Cleaning
   const [carpets, setCarpets] = useState(0);
   const [couches, setCouches] = useState(0);
   const [smallCurtains, setSmallCurtains] = useState(0);
   const [rugs, setRugs] = useState(0);
   const [bedMattresses, setbedMattresses] = useState(0);
+
+  // State for Commercial Cleaning
   const [windowCurtains, setWindowCurtains] = useState(0);
   const [doorCurtains, setDoorCurtains] = useState(0);
+
+  // State for Deep Cleaning
   const [groutCleaning, setGroutCleaning] = useState(false);
   const [bathrooms, setBathrooms] = useState(0);
   const [kitchenHallwayCleaning, setKitchenHallwayCleaning] = useState(false);
   const [mouldGroutCleaning, setMouldGroutCleaning] = useState(false);
 
+  // Total calculation state
   const [total, setTotal] = useState(0);
 
   const sendEmail = (e) => {
