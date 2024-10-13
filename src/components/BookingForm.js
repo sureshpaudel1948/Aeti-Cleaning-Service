@@ -6,7 +6,7 @@ import "../components/ResidentialQuoteForm.css";
 import "../components/CommercialQuoteForm.css";
 import "../components/DeepCleaningQuoteForm.css";
 import emailjs from "emailjs-com";
-import calculateTotal from "../utils/calculateTotal";
+import calculateTotal from "../utils/calculateTotal.js";
 
 const BookingForm = () => {
     const [serviceType, setServiceType] = useState(""); // State to handle service type selection
@@ -75,7 +75,7 @@ const BookingForm = () => {
       .sendForm(
         "service_72gbgi8", // Service ID
         "template_84p0hcy", // Template ID
-        formData, // form element
+        e.target, // form element
         "UmVoIH6pHds8c_SaI" // User ID
       )
       .then(
@@ -344,7 +344,7 @@ const BookingForm = () => {
           <select
             id="groutCleaning"
             name="groutCleaning"
-            value={groutCleaning}
+            value={groutCleaning ? "yes" : "no"} // Convert boolean to string
             onChange={(e) => setGroutCleaning(e.target.value === "yes")}
           >
             <option value="no">No</option>
@@ -361,7 +361,9 @@ const BookingForm = () => {
             id="bathrooms"
             name="bathrooms"
             value={bathrooms}
-            onChange={handleChange((value) => setBathrooms(Math.min(value, 2)))}
+            onChange={(e) =>
+                setBathrooms(Math.min(Number(e.target.value), 2))
+              }
             placeholder="Enter number of bathrooms"
             min="0"
             max="2"
@@ -376,7 +378,7 @@ const BookingForm = () => {
           <select
             id="kitchenHallwayCleaning"
             name="kitchenHallwayCleaning"
-            value={kitchenHallwayCleaning}
+            value={kitchenHallwayCleaning ? "yes" : "no"}
             onChange={(e) =>
               setKitchenHallwayCleaning(e.target.value === "yes")
             }
@@ -394,7 +396,7 @@ const BookingForm = () => {
           <select
             id="mouldGroutCleaning"
             name="mouldGroutCleaning"
-            value={mouldGroutCleaning}
+            value={mouldGroutCleaning ? "yes" : "no"}
             onChange={(e) =>
               setMouldGroutCleaning(e.target.value === "yes")
             }
