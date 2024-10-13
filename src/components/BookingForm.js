@@ -1,11 +1,10 @@
 // src/components/BookingForm.js
 
-import React, { useState} from "react";
+import React, { useState, useEffect} from "react";
 import "../components/BookNowForm.css";
 import "../components/ResidentialQuoteForm.css";
 import "../components/CommercialQuoteForm.css";
 import "../components/DeepCleaningQuoteForm.css";
-import "../components/ResidentialQuoteForm.css";
 import emailjs from "emailjs-com";
 import calculateTotal from "../utils/calculateTotal";
 
@@ -91,6 +90,38 @@ const BookingForm = () => {
 
     e.target.reset();
   };
+
+   // Handle dynamic total calculation
+   useEffect(() => {
+    const totalPrice = calculateTotal(serviceType, {
+      carpets,
+      couches,
+      smallCurtains,
+      rugs,
+      bedMattresses,
+      windowCurtains,
+      doorCurtains,
+      bathrooms,
+      groutCleaning,
+      kitchenHallwayCleaning,
+      mouldGroutCleaning,
+    });
+    setTotal(totalPrice); // Set the total dynamically
+  }, [
+    serviceType,
+    carpets,
+    couches,
+    smallCurtains,
+    rugs,
+    bedMattresses,
+    windowCurtains,
+    doorCurtains,
+    bathrooms,
+    groutCleaning,
+    kitchenHallwayCleaning,
+    mouldGroutCleaning,
+  ]);
+
 
 
   const handleChange = (setter) => (e) => {
