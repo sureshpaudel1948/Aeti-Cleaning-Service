@@ -6,6 +6,7 @@ import CommercialQuoteForm from './components/CommercialQuoteForm';
 import ResidentialQuoteForm from './components/ResidentialQuoteForm'; 
 import DeepCleaningQuoteForm from './components/DeepCleaningQuoteForm'; 
 import Contact from './pages/Contact';
+import About from './pages/About';
 import Footer from './components/Footer';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/deep-quote" element={<DeepCleaningQuoteForm />} />
         
         <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
       </Routes>
       <Footer />
     </Router>

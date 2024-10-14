@@ -1,0 +1,112 @@
+.about-section {
+    background-color: #f4f7f9;
+    padding: 60px 20px;
+  }
+  
+  .about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 15px;
+  }
+  
+  .about-title {
+    font-size: 2.5rem;
+    color: #000000; /* Primary color */
+    margin-bottom: 20px;
+  }
+  
+  .about-description {
+    font-size: 1.2rem;
+    color: #000000;
+    margin-bottom: 40px;
+    line-height: 1.8;
+    text-align: justify;
+  }
+  
+  .about-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    margin-bottom: 40px;
+  }
+  
+  .feature-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex: 1 1 30%;
+    min-width: 280px;
+  }
+  
+  .feature-title {
+    font-size: 1.5rem;
+    color: #000000; /* Primary color */
+    margin-bottom: 10px;
+  }
+  
+  .feature-description {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.6;
+    text-align: justify;
+  }
+  
+  .cta-section {
+    background: linear-gradient(to right, #910707, #AB0909, #C50A0A, #CB0A0A, #D10A0A);
+    color: white;
+    padding: 30px 20px;
+    border-radius: 10px;
+  }
+  
+  .cta-section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .cta-button {
+    background-color: #ffffff;
+    color: #ff0000;
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cta-button:hover {
+    background-color: #f4f7f9;
+    color: #333;
+  }
+  
+  /* Responsive Styling */
+  @media (max-width: 768px) {
+    .about-title {
+      font-size: 2rem;
+    }
+  
+    .about-description {
+      font-size: 1rem;
+    }
+  
+    .feature-card {
+      flex: 1 1 100%;
+    }
+  
+    .cta-section h2 {
+      font-size: 1.6rem;
+    }
+  
+    .cta-section p {
+      font-size: 1rem;
+    }
+  }
+  
