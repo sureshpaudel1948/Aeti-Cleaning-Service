@@ -52,25 +52,23 @@ const BookingForm = () => {
     formData.append("total_quote", totalPrice);
     formData.append("service_type", serviceType)
 
-    if (serviceType === "residential") {
-      formData.append("carpets", carpets || 0);
-      formData.append("couches", couches || 0);
-      formData.append("smallCurtains", smallCurtains || 0);
-      formData.append("rugs", rugs || 0);
-      formData.append("bedMattresses", bedMattresses || 0);
-    } else if (serviceType === "commercial") {
-      formData.append("carpets", carpets || 0);
-      formData.append("couches", couches || 0);
-      formData.append("smallCurtains", smallCurtains || 0);
-      formData.append("windowCurtains", windowCurtains || 0);
-      formData.append("doorCurtains", doorCurtains || 0);
-    } else if (serviceType === "deep") {
-      formData.append("bathrooms", bathrooms || 0);
-      formData.append("groutCleaning", groutCleaning ? "Yes" : "No");
-      formData.append("kitchenHallwayCleaning", kitchenHallwayCleaning ? "Yes" : "No");
-      formData.append("mouldGroutCleaning", mouldGroutCleaning ? "Yes" : "No");
-    }
-
+      // Append only the relevant details based on the selected service type
+  if (serviceType === "residential") {
+    if (carpets > 0) formData.append("carpets", carpets);
+    if (couches > 0) formData.append("couches", couches);
+    if (smallCurtains > 0) formData.append("smallCurtains", smallCurtains);
+    if (rugs > 0) formData.append("rugs", rugs);
+    if (bedMattresses > 0) formData.append("bedMattresses", bedMattresses);
+  } else if (serviceType === "commercial") {
+    if (windowCurtains > 0) formData.append("windowCurtains", windowCurtains);
+    if (doorCurtains > 0) formData.append("doorCurtains", doorCurtains);
+  } else if (serviceType === "deep") {
+    if (bathrooms > 0) formData.append("bathrooms", bathrooms);
+    formData.append("groutCleaning", groutCleaning ? "Yes" : "No");
+    formData.append("kitchenHallwayCleaning", kitchenHallwayCleaning ? "Yes" : "No");
+    formData.append("mouldGroutCleaning", mouldGroutCleaning ? "Yes" : "No");
+  }
+  
     emailjs
       .sendForm(
         "service_72gbgi8", // Service ID
@@ -90,6 +88,8 @@ const BookingForm = () => {
       );
 
     e.target.reset();
+    setTotal(0); // Reset total after form submission
+    setServiceType(""); // Reset service type after form submission
   };
 
    // Handle dynamic total calculation
