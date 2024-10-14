@@ -23,9 +23,14 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1); /* Slightly transparent white */
 }
 
-.footer .footer-about {
-  margin-left: 10px;
+.footer .sitename {
+  text-align: center;
 }
+
+.footer .footer-about {
+  margin: 0px;
+}
+
 
 .footer .footer-about .logo {
   line-height: 1;
@@ -111,6 +116,10 @@
 .footer-contact {
   padding-top: 0;
   margin: 5px;
+}
+
+.footer-cont {
+  width: 90%;
 }
 
 .footer .copyright {

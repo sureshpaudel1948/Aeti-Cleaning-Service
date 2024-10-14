@@ -47,7 +47,7 @@ const Home = () => {
       </div>
 
       <h1>Why Choose Us?</h1>
-      <ul>
+      <ul className="reason">
         <h2>Comprehensive Residential Cleaning</h2>
         <div className="rescont">
           <img

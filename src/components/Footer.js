@@ -34,16 +34,16 @@ const Footer = () => {
 
           <div className="col-lg-4 col-md-3 footer-links">
             <h4>Contact Us</h4>
-            <p><strong>Address:</strong> <span>113 Renou St, East Cannington, Perth-WA, Australia</span></p>
-            <p><strong>Email:</strong> <span>aeticleaningservices@gmail.com</span></p>
-            <p><strong>Phone:</strong> <span>+61234567890</span></p>
+            <p className='footer-cont'><strong>Address:</strong> <span>113 Renou St, East Cannington, Perth-WA, Australia</span></p>
+            <p className='footer-cont'><strong>Email:</strong> <span>aeticleaningservices@gmail.com</span></p>
+            <p className='footer-cont'><strong>Phone:</strong> <span>+61234567890</span></p>
           </div>
 
         </div>
       </div>
 
       <div className="copyright">
-        <p>©<span> Copyright 2024</span> <strong className="px-1 sitename">Aeti Cleaning Service</strong> <span>All Rights Reserved</span></p>
+        <p className='copy'>©<span> Copyright 2024</span> <strong className="px-1 sitename">Aeti Cleaning Service</strong> <span>All Rights Reserved</span></p>
       </div>
     </footer>
   );

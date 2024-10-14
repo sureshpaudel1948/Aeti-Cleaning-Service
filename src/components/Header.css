@@ -4,43 +4,44 @@
 }
 
 header {
-    background-color: #f8f9fa;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  header img {
-    height: 50px; /* Adjust the size according to your logo */
-  }
+  background-color: #f8f9fa;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 10; /* Header Stays above content */
+}
 
-  .logo {
-   width: 95px;
-   height: 95px;
-   margin: 15px;
-   margin-left: 5px;
-   margin-bottom: 40px;
-  }
-  
-  nav {
-    display: flex;
-    justify-content: space-around;
-    gap: 70px;
-  }
-  
-  nav a {
-    text-decoration: none; /* Remove underline from links */
-    color: #333; /* Default link color */
-    font-weight: bold; /* Make links bold */
-    transition: color 0.3s;
-  }
-  
-  nav a:hover {
-    color: #C50A0A; /* Change link color on hover */
-  }
+header img {
+  height: 50px; /* Adjust the size according to your logo */
+}
 
-  
+.logo {
+  width: 95px;
+  height: 95px;
+  margin: 15px;
+  margin-left: 5px;
+  margin-bottom: 40px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  gap: 70px;
+}
+
+nav a {
+  text-decoration: none; /* Remove underline from links */
+  color: #333; /* Default link color */
+  font-weight: bold; /* Make links bold */
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #c50a0a; /* Change link color on hover */
+}
+
 /* Burger Icon */
 .burger-icon {
   display: none;
@@ -69,6 +70,7 @@ header {
     padding: 20px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 20;
   }
 
   /* Show nav links when menu is open */
@@ -86,4 +88,3 @@ header {
     border-bottom: none;
   }
 }
-  
