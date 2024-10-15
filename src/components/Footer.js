@@ -13,8 +13,7 @@ const Footer = () => {
               <span className="sitename">Aeti Cleaning Services</span>
             </a>
             <div className="footer-contact pt-3">
-              <p><strong>Phone:</strong> <span>+61234567890</span></p>
-              <p><strong>Email:</strong> <span>aeticleaningservices@gmail.com</span></p>
+              <p><strong>Follow Us On:</strong></p>     
             </div>
             <div className="social-links d-flex mt-4">
               <a href="https://www.facebook.com/profile.php?id=61566451723826&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer"><i className="fab fa-facebook"></i></a>

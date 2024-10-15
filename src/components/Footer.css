@@ -23,6 +23,13 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1); /* Slightly transparent white */
 }
 
+.footer .footer-contact {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+}
+
+
 .footer .sitename {
   text-align: center;
 }
@@ -37,6 +44,9 @@
   margin: 0px;
 }
 
+.footer .footer-cont {
+  margin: 6px;
+}
 
 .footer .footer-about .logo {
   line-height: 1;
@@ -58,9 +68,10 @@
 
 .footer .social-links {
   display: flex; /* Use flexbox to arrange children in a row */
-  margin-left: 10px;
+  margin-left: 0px;
   margin-top: 10px; /* Adjust margin to your liking */
 }
+
 
 .footer .social-links a {
   display: flex;
@@ -194,5 +205,16 @@
   .copyright p {
     width: 100%;
     font-size: small;
+  }
+}
+
+@media (max-width: 425px) and (min-width: 280px) {
+  .footer .footer-about .logo span {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: var(--heading-color);
+    text-align: center;
   }
 }
