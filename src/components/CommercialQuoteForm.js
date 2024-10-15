@@ -1,7 +1,6 @@
 // src/components/CommercialQuoteForm.js
 import React, { useState } from 'react';
 import './CommercialQuoteForm.css'; // Optional: Create CSS for styling the form
-import emailjs from 'emailjs-com'; // Import EmailJS
 
 const CommercialQuoteForm = () => {
   // State to hold input values and total price
@@ -32,36 +31,9 @@ const CommercialQuoteForm = () => {
 
     setTotal(totalPrice);
 
-    sendEmail(totalPrice); // Send email after calculation
   };
 
-  // EmailJS function to send the quote details
-  const sendEmail = (totalPrice) => {
-    const templateParams = {
-      carpets,
-      couches,
-      smallCurtains,
-      windowCurtains,
-      doorCurtains,
-      totalPrice
-    };
-
-    emailjs.send(
-      'service_72gbgi8', // Replace with your EmailJS service ID
-      'template_84p0hcy', // Replace with your EmailJS template ID
-      templateParams,
-      'UmVoIH6pHds8c_SaI' // Replace with your EmailJS user ID
-    ).then(
-      (response) => {
-        console.log('SUCCESS!', response.status, response.text);
-        alert('Quote generated and sent via email!');
-      },
-      (err) => {
-        console.log('FAILED...', err);
-      }
-    );
-  };
-
+  
   return (
     <div className="quote-form">
       <h2>Generate Free Quote - Commercial Cleaning</h2>
