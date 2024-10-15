@@ -39,7 +39,7 @@ const DeepCleaningQuoteForm = () => {
         <label htmlFor="groutCleaning">Do you need grout cleaning for areas up to 50 Sqm?</label>
         <select
           id="groutCleaning"
-          value={groutCleaning}
+          value={groutCleaning ? "yes" : "no"} 
           onChange={(e) => setGroutCleaning(e.target.value === 'yes')}
         >
           <option value="no">No</option>
@@ -64,7 +64,7 @@ const DeepCleaningQuoteForm = () => {
         <label htmlFor="kitchenHallwayCleaning">Do you need deep cleaning for the kitchen and hallway (up to 25 Sqm)?</label>
         <select
           id="kitchenHallwayCleaning"
-          value={kitchenHallwayCleaning}
+          value={kitchenHallwayCleaning ? "yes" : "no"}
           onChange={(e) => setKitchenHallwayCleaning(e.target.value === 'yes')}
         >
           <option value="no">No</option>
@@ -76,7 +76,7 @@ const DeepCleaningQuoteForm = () => {
         <label htmlFor="mouldGroutCleaning">Do you require mould and grout cleaning for up to 2 bathrooms?</label>
         <select
           id="mouldGroutCleaning"
-          value={mouldGroutCleaning}
+          value={mouldGroutCleaning ? "yes" : "no"}
           onChange={(e) => setMouldGroutCleaning(e.target.value === 'yes')}
         >
           <option value="no">No</option>
