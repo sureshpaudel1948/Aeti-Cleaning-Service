@@ -4,25 +4,23 @@ import "./Home.css"; //CSS File is imported
 import calculateTotal from "../utils/calculateTotal.js";
 import BookingForm from "../components/BookingForm.js";
 
-
 const Home = () => {
   const [showForm, setShowForm] = useState(false); // State to handle form visibility
   const [serviceType, setServiceType] = useState(""); // State to handle service type selection
   const [total, setTotal] = useState(0); // State to store the total calculated price
-  
+
   const handleBookNow = () => {
     setShowForm(!showForm); // Toggle the form display
   };
 
-   // Example function to update the total when the service type changes or form is submitted
-   useEffect(() => {
+  // Example function to update the total when the service type changes or form is submitted
+  useEffect(() => {
     if (serviceType) {
       const calculatedTotal = calculateTotal(serviceType);
       setTotal(calculatedTotal); // Update total cost
     }
   }, [serviceType]);
 
- 
   return (
     <div className="home">
       <h1>Welcome to Aeti Cleaning Services</h1>
@@ -56,26 +54,37 @@ const Home = () => {
             className="resimg"
           />
           <p className="points">
-            Whether it's a weekly tidy-up or a thorough seasonal cleaning, we
-            provide tailored residential cleaning services that keep your home
-            fresh and spotless. From kitchens to bedrooms, no corner is
-            overlooked.
+            Our comprehensive residential cleaning services cater to all your
+            home cleaning needs, whether it’s a routine weekly maintenance or a
+            deep seasonal clean. We tailor our services to fit the unique
+            requirements of your household, ensuring that every space—from the
+            kitchen to the living room and bedrooms—is left sparkling clean. No
+            corner is overlooked, and we pay close attention to high-traffic
+            areas, dust-prone zones, and hard-to-reach spots. With our
+            professional touch, your home will not only look fresh but also feel
+            more comfortable and inviting for your family.
           </p>
         </div>
 
         <h2>Efficient Commercial Cleaning</h2>
-        <div className="comcont">
-          <p className="points">
-            We understand the importance of a clean and hygienic workspace. Our
-            commercial cleaning services ensure your office or business premises
-            stay immaculate, helping to create a productive and welcoming
-            environment for both employees and clients.
-          </p>
+        <div className="comcont"> 
           <img
             src={require("../assets/commercial.jpeg")}
             alt="Efficient Commercial Cleaning"
             className="comimg"
           />
+          <p className="points">
+            A clean workspace is crucial for a productive and professional
+            atmosphere, and our efficient commercial cleaning services are
+            designed to meet that need. We work with offices, retail spaces, and
+            other commercial properties to maintain a spotless and hygienic
+            environment, ensuring that your business always puts its best foot
+            forward. From regular cleaning schedules to one-time deep cleans, we
+            ensure that your premises remain immaculate, enhancing employee
+            productivity and creating a welcoming space for clients and visitors
+            alike. Our approach combines thoroughness with efficiency, so your
+            workspace stays pristine without disrupting daily operations.
+          </p>
         </div>
 
         <h2>Specialized Deep Cleaning</h2>
@@ -86,10 +95,15 @@ const Home = () => {
             className="deepimg"
           />
           <p className="points">
-            Our deep cleaning service is designed to tackle the toughest grime
-            and dirt. Whether it’s post-renovation cleaning, move-in/move-out
-            services, or just an annual refresh, we use advanced techniques and
-            eco-friendly products to leave your space gleaming.
+            Our specialized deep cleaning services go beyond surface-level
+            cleaning to target deeply embedded grime, dirt, and dust. Whether
+            you need a post-renovation cleanup, move-in/move-out services, or
+            just an intensive annual refresh, we’re equipped to handle the
+            toughest cleaning tasks. We use advanced techniques and eco-friendly
+            products to thoroughly clean every nook and cranny, from carpets and
+            upholstery to tiles and grout. Our deep cleaning services not only
+            restore the cleanliness of your space but also improve the overall
+            hygiene, leaving your home or office gleaming and refreshed.
           </p>
         </div>
       </ul>
@@ -98,10 +112,15 @@ const Home = () => {
       <button onClick={handleBookNow}>Book Now</button>
 
       {/* Display the form if showForm is true */}
-      {showForm && <BookingForm serviceType={serviceType} setServiceType={setServiceType} />}
-   
-    {/* Display total quote if calculated */}
-    {total > 0 && <h2>Your Total Quote: ${total}</h2>}
+      {showForm && (
+        <BookingForm
+          serviceType={serviceType}
+          setServiceType={setServiceType}
+        />
+      )}
+
+      {/* Display total quote if calculated */}
+      {total > 0 && <h2>Your Total Quote: ${total}</h2>}
     </div>
   );
 };
