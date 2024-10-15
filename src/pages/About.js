@@ -11,7 +11,7 @@ const About = () => {
       <div className="about-container">
         <h1 className="about-title">About Us</h1>
         <p className="about-description">
-          At Aeti Cleaning Service, we are committed to providing high-quality,
+          At Aeti Cleaning Services, we are committed to providing high-quality,
           reliable cleaning solutions to homes and businesses across Perth,
           Western Australia. Whether it's residential, commercial, or deep
           cleaning, we tailor our services to meet your specific needs, ensuring
@@ -51,7 +51,7 @@ const About = () => {
         <div className="cta-section">
           <h2>Ready for a spotless clean?</h2>
           <p>
-            Get in touch with Aeti Cleaning Service today for a free quote and
+            Get in touch with Aeti Cleaning Services today for a free quote and
             let us take care of your cleaning needs.
           </p>
           <a href="/contact" className="cta-button">Contact Us</a>

@@ -24,7 +24,9 @@ const Footer = () => {
           </div>
 
           <div className="col-lg-4 col-md-3 footer-links">
-            <h4>Our Services</h4>
+            <a href="/services" className="logo d-flex align-items-center">
+            <span className="foot-link">Our Services</span>
+            </a>
             <ul>
               <li><a href="/services#residential">Residential Cleaning</a></li>
               <li><a href="/services#commercial">Commercial Cleaning</a></li>
@@ -33,7 +35,9 @@ const Footer = () => {
           </div>
 
           <div className="col-lg-4 col-md-3 footer-links">
-            <h4>Contact Us</h4>
+          <a href="/contact" className="logo d-flex align-items-center">
+            <span className="foot-link">Contact Us</span>
+            </a>
             <p className='footer-cont'><strong>Address:</strong> <span>113 Renou St, East Cannington, Perth-WA, Australia</span></p>
             <p className='footer-cont'><strong>Email:</strong> <span>aeticleaningservices@gmail.com</span></p>
             <p className='footer-cont'><strong>Phone:</strong> <span>+61234567890</span></p>
