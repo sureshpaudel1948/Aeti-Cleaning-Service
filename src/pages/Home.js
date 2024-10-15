@@ -25,7 +25,7 @@ const Home = () => {
  
   return (
     <div className="home">
-      <h1>Welcome to Aeti Cleaning Service</h1>
+      <h1>Welcome to Aeti Cleaning Services</h1>
       <p>We offer the best cleaning services for homes and offices.</p>
       <div class="hero">
         <img
@@ -34,7 +34,7 @@ const Home = () => {
           className="heroimg"
         />
         <p className="description">
-          Aeti Cleaning Service is proudly based in Western Australia, Perth,
+          Aeti Cleaning Services is proudly based in Western Australia, Perth,
           and we are dedicated to serving our community with top-tier cleaning
           solutions. Whether it's residential or commercial cleaning, we operate
           with the highest standards of cleanliness and professionalism. Our

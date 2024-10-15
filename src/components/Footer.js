@@ -10,7 +10,7 @@ const Footer = () => {
 
           <div className="col-lg-4 col-md-6 footer-about">
             <a href="/" className="logo d-flex align-items-center">
-              <span className="sitename">Aeti Cleaning Service</span>
+              <span className="sitename">Aeti Cleaning Services</span>
             </a>
             <div className="footer-contact pt-3">
               <p><strong>Phone:</strong> <span>+61234567890</span></p>
@@ -43,7 +43,7 @@ const Footer = () => {
       </div>
 
       <div className="copyright">
-        <p className='copy'>©<span> Copyright 2024</span> <strong className="px-1 sitename">Aeti Cleaning Service</strong> <span>All Rights Reserved</span></p>
+        <p className='copy'>©<span> Copyright 2024</span> <strong className="px-1 sitename">Aeti Cleaning Servicess</strong> <span>All Rights Reserved</span></p>
       </div>
     </footer>
   );
