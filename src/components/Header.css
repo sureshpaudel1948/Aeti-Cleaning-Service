@@ -1,91 +1,105 @@
-/* src/components/Header.css */
 * {
   box-sizing: border-box;
 }
 
-header {
-  background-color: #f8f9fa;
-  padding: 0.7rem;
+.site-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
-  z-index: 10; /* Header Stays above content */
-  height: 90%;
+  padding: 1rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid #eaf3f8;
 }
 
-header img {
-  height: 50px; /* Adjust the size according to your logo */
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  text-decoration: none;
+  color: #0f2b3a;
 }
 
 .logo {
-  width: 95px;
-  height: 95px;
-  margin: 15px;
-  margin-left: 5px;
-  margin-bottom: 40px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.brand-name {
+  display: block;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+.brand-tag {
+  display: block;
+  font-size: 0.82rem;
+  color: #4f6471;
 }
 
 nav {
   display: flex;
-  justify-content: space-around;
-  gap: 70px;
+  gap: 1.5rem;
 }
 
 nav a {
-  text-decoration: none; /* Remove underline from links */
-  color: #333; /* Default link color */
-  font-weight: bold; /* Make links bold */
-  transition: color 0.3s;
+  text-decoration: none;
+  color: #0f2b3a;
+  font-weight: 600;
+  padding-bottom: 0.25rem;
+  position: relative;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(135deg, #0f8d7d, #1bbf9a);
+  transition: width 0.2s ease;
 }
 
 nav a:hover {
-  color: #c50a0a; /* Change link color on hover */
+  color: #1f9d8b;
+  transform: translateY(-2px);
 }
 
-/* Burger Icon */
+nav a:hover::after {
+  width: 100%;
+}
+
 .burger-icon {
   display: none;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
+  color: #0f2b3a;
   cursor: pointer;
-  color: #333;
-  margin-right: 15px;
 }
 
-/* Mobile Styles */
 @media (max-width: 768px) {
-  /* Show the burger icon */
   .burger-icon {
     display: block;
   }
 
-  /* Hide nav links initially */
   nav {
     display: none;
     flex-direction: column;
     position: absolute;
     top: 100%;
     right: 0;
-    background-color: #f8f9fa;
-    width: 100%;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 20;
+    left: 0;
+    background: #fff;
+    padding: 1rem 1.4rem;
+    box-shadow: 0 12px 30px rgba(15, 43, 58, 0.08);
   }
 
-  /* Show nav links when menu is open */
   .nav-open {
     display: flex;
-  }
-
-  nav a {
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-    margin: 0;
-  }
-
-  nav a:last-child {
-    border-bottom: none;
   }
 }

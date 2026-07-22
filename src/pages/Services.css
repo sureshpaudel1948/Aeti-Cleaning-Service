@@ -2,90 +2,149 @@
   box-sizing: border-box;
 }
 
-.services {
-  padding: 2rem;
-  background-color: white;
+.services-page {
+  padding: 2rem 1.5rem 3rem;
+  background: linear-gradient(180deg, #f7fbff 0%, #ffffff 100%);
+}
+
+.services-hero {
+  max-width: 760px;
+  margin: 0 auto 2rem;
   text-align: center;
 }
 
-.services h1 {
-  color: #000000;
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+.services-hero h1 {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  color: #0f2b3a;
+  margin: 0 0 0.8rem;
 }
 
-.services ul {
+.services-hero p {
+  color: #4f6471;
+  line-height: 1.7;
+}
+
+.services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  padding: 0;
-  list-style: none;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.3rem;
 }
 
-.services li {
-  background: linear-gradient(to right, #910707, #AB0909, #C50A0A, #CB0A0A, #D10A0A);
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-  cursor: pointer;
+.service-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 1.4rem;
+  box-shadow: 0 16px 40px rgba(15, 43, 58, 0.08);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 1rem;
+  min-height: 100%;
+  border: 1px solid transparent;
+  overflow: hidden;
 }
 
-.services li:hover {
-  transform: scale(1.03);
+.service-card-image {
+  margin: -1.4rem -1.4rem 1rem -1.4rem;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 24px 24px 0 0;
 }
 
-.services h2 {
-  color: #ffffff;
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
+.service-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.services .description {
-  font-size: small;
-  text-align: justify;
+.service-card-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(15, 141, 125, 0.1);
+  color: #0f8d7d;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 0.9rem;
 }
 
-.services p {
-  color: #d1d0d0;
-  font-size: 1.2rem;
+.service-card h2 {
+  margin: 0 0 0.55rem;
+  color: #0f2b3a;
+}
+
+.service-tagline {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #1f9d8b;
+  margin-bottom: 0.75rem;
+}
+
+.description {
+  color: #4f6471;
+  line-height: 1.6;
+}
+
+.price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f2b3a;
+  margin: 0.7rem 0 0;
+}
+
+.service-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.quote-btn,
+.details-btn {
+  border-radius: 999px;
+  padding: 0.8rem 1rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quote-btn:hover,
+.details-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(15, 43, 58, 0.12);
 }
 
 .quote-btn {
-  background-color: #ffffff;
-  color: #ff0000;
-  font-weight: bold;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 15px;
-  margin-top: 10px;
-  border-radius: 10px;
-  transition: background 0.3s ease;
-}
-
-.quote-btn:hover {
-  background: linear-gradient(to right, #cccccc, #d4c9c9, #f3e5e5, #cccccc, #a56f6f);
+  background: linear-gradient(135deg, #0f8d7d, #1bbf9a);
+  color: #fff;
 }
 
 .details-btn {
-  background-color: #f5f5f5;
-  color: #000000;
-  font-weight: 600;
-  border: 1px solid #ccc;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 12px;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-  display: block;
-  margin-top: 10px;
+  background: #f3f8fb;
+  color: #0f2b3a;
 }
 
-.details-btn:hover {
-  background-color: #e0e0e0;
-  color: #333333;
+.pricing-details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pricing-details li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f7fbff;
+  border-radius: 14px;
+  padding: 0.75rem 0.9rem;
+  color: #4f6471;
+}
+
+.pricing-details strong {
+  color: #0f2b3a;
 }

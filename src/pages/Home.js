@@ -1,126 +1,189 @@
-// src/pages/Home.js
-import React, { useState, useEffect } from "react";
-import "./Home.css"; //CSS File is imported
-import calculateTotal from "../utils/calculateTotal.js";
+import React, { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
+import "./Home.css";
 import BookingForm from "../components/BookingForm.js";
 
+const serviceHighlights = [
+  {
+    title: "Carpet & Rug Care",
+    description:
+      "Refresh fibres, remove stains, and bring softness back to your favourite rooms.",
+    icon: "🧶",
+  },
+  {
+    title: "Upholstery & Mattresses",
+    description:
+      "Give sofas, cushions, and mattresses a deep clean with fabric-safe care.",
+    icon: "🛋️",
+  },
+  {
+    title: "Curtains, Blinds & Windows",
+    description:
+      "Brighten interiors with polished window treatments and spotless glass.",
+    icon: "🪟",
+  },
+];
+
+const whyChooseUs = [
+  {
+    title: "Reliable scheduling",
+    description: "Choose a time that suits your routine and enjoy punctual service.",
+  },
+  {
+    title: "Eco-conscious methods",
+    description: "We use professional products that lift dirt while being mindful of your spaces.",
+  },
+  {
+    title: "Friendly local team",
+    description: "Expect warm service, clear communication, and care from start to finish.",
+  },
+];
+
 const Home = () => {
-  const [showForm, setShowForm] = useState(false); // State to handle form visibility
-  const [serviceType, setServiceType] = useState(""); // State to handle service type selection
-  const [total, setTotal] = useState(0); // State to store the total calculated price
+  const [showForm, setShowForm] = useState(false);
+  const location = useLocation();
+  const bookingSectionRef = useRef(null);
 
-  const handleBookNow = () => {
-    setShowForm(!showForm); // Toggle the form display
-  };
-
-  // Example function to update the total when the service type changes or form is submitted
   useEffect(() => {
-    if (serviceType) {
-      const calculatedTotal = calculateTotal(serviceType);
-      setTotal(calculatedTotal); // Update total cost
+    if (location.state?.scrollToBooking) {
+      setShowForm(true);
+      const timer = window.setTimeout(() => {
+        bookingSectionRef.current?.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 120);
+
+      return () => window.clearTimeout(timer);
     }
-  }, [serviceType]);
+  }, [location.state]);
+
+  const handleBookService = () => {
+    setShowForm(true);
+    window.setTimeout(() => {
+      bookingSectionRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 120);
+  };
 
   return (
     <div className="home">
-      <h1>Welcome to Aeti Cleaning Services</h1>
-      <p>We offer the best cleaning services for homes and offices.</p>
-      <div class="hero">
-        <img
-          src={require("../assets/hero.jpg")}
-          alt="Our Cleaning Service"
-          className="heroimg"
-        />
-        <p className="description">
-          Aeti Cleaning Services is proudly based in Western Australia, Perth,
-          and we are dedicated to serving our community with top-tier cleaning
-          solutions. Whether it's residential or commercial cleaning, we operate
-          with the highest standards of cleanliness and professionalism. Our
-          expert team is always there for you, offering reliable, eco-friendly
-          cleaning at affordable rates. We believe in putting our customers
-          first, which is why we tailor our services to meet your specific needs
-          and schedules. Rest assured, you can rely on us for a sparkling clean
-          home or workplace, every time.
-        </p>
-      </div>
-
-      <h1>Why Choose Us?</h1>
-      <ul className="reason">
-        <h2>Comprehensive Residential Cleaning</h2>
-        <div className="rescont">
-          <img
-            src={require("../assets/residential.jpg")}
-            alt="Comprehensive Residential Cleaning"
-            className="resimg"
-          />
-          <p className="points">
-            Our comprehensive residential cleaning services cater to all your
-            home cleaning needs, whether it’s a routine weekly maintenance or a
-            deep seasonal clean. We tailor our services to fit the unique
-            requirements of your household, ensuring that every space—from the
-            kitchen to the living room and bedrooms—is left sparkling clean. No
-            corner is overlooked, and we pay close attention to high-traffic
-            areas, dust-prone zones, and hard-to-reach spots. With our
-            professional touch, your home will not only look fresh but also feel
-            more comfortable and inviting for your family.
+      <section className="hero-section">
+        <div className="hero-copy">
+          <p className="eyebrow">Premium cleaning, polished for modern living</p>
+          <h1>Spotless spaces with a fresh, local touch.</h1>
+          <p className="hero-text">
+            Aeti Cleaning Services brings expert fabric care, residential cleaning,
+            and convenient laundry support to homes and businesses in Perth. We make
+            every visit feel effortless and every finish look exceptional.
           </p>
+          <div className="hero-actions">
+            <button className="primary-btn" onClick={handleBookService}>
+              Book a Service
+            </button>
+            <a className="secondary-btn" href="/services">
+              Explore Services
+            </a>
+          </div>
+          <div className="hero-stats">
+            <div>
+              <strong>24/7</strong>
+              <span>Booking support</span>
+            </div>
+            <div>
+              <strong>100%</strong>
+              <span>Client-focused care</span>
+            </div>
+            <div>
+              <strong>+10$</strong>
+              <span>Delivery fee for laundry</span>
+            </div>
+          </div>
         </div>
 
-        <h2>Efficient Commercial Cleaning</h2>
-        <div className="comcont"> 
-          <img
-            src={require("../assets/commercial.jpeg")}
-            alt="Efficient Commercial Cleaning"
-            className="comimg"
-          />
-          <p className="points">
-            A clean workspace is crucial for a productive and professional
-            atmosphere, and our efficient commercial cleaning services are
-            designed to meet that need. We work with offices, retail spaces, and
-            other commercial properties to maintain a spotless and hygienic
-            environment, ensuring that your business always puts its best foot
-            forward. From regular cleaning schedules to one-time deep cleans, we
-            ensure that your premises remain immaculate, enhancing employee
-            productivity and creating a welcoming space for clients and visitors
-            alike. Our approach combines thoroughness with efficiency, so your
-            workspace stays pristine without disrupting daily operations.
-          </p>
+        <div className="hero-card">
+          <img src={require("../assets/cleaning.jpg")} alt="Professional cleaning team" />
+          <div className="hero-card-body">
+            <p className="eyebrow">Laundry & Delivery</p>
+            <h3>Washing, drying, ironing and folding — we make the routine easier.</h3>
+            <p>
+              Add delivery to your laundry order for a simple, stress-free finish.
+            </p>
+          </div>
         </div>
+      </section>
 
-        <h2>Specialized Deep Cleaning</h2>
-        <div className="deepcont">
-          <img
-            src={require("../assets/deep.jpg")}
-            alt="Specialized Deep Cleaning"
-            className="deepimg"
-          />
-          <p className="points">
-            Our specialized deep cleaning services go beyond surface-level
-            cleaning to target deeply embedded grime, dirt, and dust. Whether
-            you need a post-renovation cleanup, move-in/move-out services, or
-            just an intensive annual refresh, we’re equipped to handle the
-            toughest cleaning tasks. We use advanced techniques and eco-friendly
-            products to thoroughly clean every nook and cranny, from carpets and
-            upholstery to tiles and grout. Our deep cleaning services not only
-            restore the cleanliness of your space but also improve the overall
-            hygiene, leaving your home or office gleaming and refreshed.
-          </p>
+      <section className="section">
+        <div className="section-heading">
+          <p className="eyebrow">What we do best</p>
+          <h2>Fresh results for every room, fabric and surface.</h2>
         </div>
-      </ul>
+        <div className="highlights-grid">
+          {serviceHighlights.map((item) => (
+            <article className="highlight-card" key={item.title}>
+              <div className="highlight-icon">{item.icon}</div>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
 
-      {/* Book Now button */}
-      <button onClick={handleBookNow}>Book Now</button>
+      <section className="section accent-section">
+        <div className="section-heading">
+          <p className="eyebrow">Laundry & Delivery</p>
+          <h2>Flexible laundry care with pickup and delivery options.</h2>
+        </div>
+        <div className="laundry-panel">
+          <div>
+            <p className="laundry-intro">
+              We go to absolute extremes to save your time by handling your entire laundry cycle,
+              from doorstep collection and meticulous washing to fiber-restoring ironing, crisp folding,
+              and hand-delivery. Let us obsess over the chores so you can reclaim your day and focus
+              entirely on what matters most.
+            </p>
+            <div className="laundry-services">
+              <h4>Services Include</h4>
+              <ul>
+                <li>Collection</li>
+                <li>Washing</li>
+                <li>Ironing and Folding</li>
+                <li>Delivery at Door</li>
+              </ul>
+            </div>
+          </div>
+          <div className="laundry-card">
+            <img src={require("../assets/laundary&delivery.jpg")} alt="Laundry and Delivery service" />
+            <h3>Delivery fee</h3>
+            <p>Enjoy a smooth delivery experience for just <strong>$10</strong> extra.</p>
+          </div>
+        </div>
+      </section>
 
-      {/* Display the form if showForm is true */}
-      {showForm && (
-        <BookingForm
-          serviceType={serviceType}
-          setServiceType={setServiceType}
-        />
-      )}
+      <section className="section">
+        <div className="section-heading">
+          <p className="eyebrow">Why clients choose us</p>
+          <h2>Reliable service, polished results and a calmer routine.</h2>
+        </div>
+        <div className="benefits-grid">
+          {whyChooseUs.map((item) => (
+            <article className="benefit-card" key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
 
-      {/* Display total quote if calculated */}
-      {total > 0 && <h2>Your Total Quote: ${total}</h2>}
+      <section className="section booking-section" id="book-now" ref={bookingSectionRef}>
+        <div className="section-heading">
+          <p className="eyebrow">Get a quote</p>
+          <h2>Tell us what you need and we will prepare a tailored estimate.</h2>
+        </div>
+        {showForm ? <BookingForm /> : <p className="booking-intro">Launch the quote form to get started with your custom cleaning plan.</p>}
+      </section>
     </div>
   );
 };

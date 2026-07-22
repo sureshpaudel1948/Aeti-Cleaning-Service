@@ -1,6 +1,8 @@
 // src/components/DeepCleaningQuoteForm.js
-import React, { useState } from 'react';
-import './DeepCleaningQuoteForm.css'; // Optional: Create CSS for styling the form
+import React, { useEffect, useRef, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import QuoteToast from './QuoteToast';
+import './DeepCleaningQuoteForm.css';
 
 const DeepCleaningQuoteForm = () => {
   // State to hold input values and total price
@@ -18,6 +20,33 @@ const DeepCleaningQuoteForm = () => {
     mouldGroutCleaning: 230
   };
 
+  const location = useLocation();
+  const navigate = useNavigate();
+  const firstInputRef = useRef(null);
+  const containerRef = useRef(null);
+  const selectedService = location.state?.selectedService;
+  const [showToast, setShowToast] = useState(Boolean(selectedService));
+
+  useEffect(() => {
+    setShowToast(Boolean(selectedService));
+
+    const serviceName = (selectedService || '').toLowerCase();
+    if (serviceName.includes('deep') || serviceName.includes('clean')) {
+      setBathrooms((value) => value || 1);
+      setKitchenHallwayCleaning(true);
+    }
+
+    if (firstInputRef.current) firstInputRef.current.focus();
+    if (containerRef.current) {
+      containerRef.current.setAttribute('tabindex', '-1');
+      containerRef.current.focus({ preventScroll: true });
+    }
+  }, [selectedService]);
+
+  const backToBook = () => {
+    navigate('/', { state: { scrollToBooking: true } });
+  };
+
   // Calculate the total cost when user inputs values
   const calculateTotal = () => {
     const totalPrice = 
@@ -32,12 +61,23 @@ const DeepCleaningQuoteForm = () => {
 
 
   return (
-    <div className="quote-form">
+    <div className="quote-form" ref={containerRef}>
+      {selectedService && showToast && (
+        <QuoteToast
+          title="Service selected"
+          message={`You picked ${selectedService}. We’ve set a helpful starting point for you.`}
+          actionLabel="Book on homepage"
+          onAction={backToBook}
+          onClose={() => setShowToast(false)}
+        />
+      )}
+
       <h2>Generate Free Quote - Deep Cleaning</h2>
 
       <div className="form-group">
         <label htmlFor="groutCleaning">Do you need grout cleaning for areas up to 50 Sqm?</label>
         <select
+          ref={firstInputRef}
           id="groutCleaning"
           value={groutCleaning ? "yes" : "no"} 
           onChange={(e) => setGroutCleaning(e.target.value === 'yes')}

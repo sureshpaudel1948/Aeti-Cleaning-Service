@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Header.css';
-import logo from '../assets/logo.png'; // Import the logo
-import { FaBars, FaTimes } from 'react-icons/fa'; // Import burger and close icons from react-icons
+import logo from '../assets/logo.png';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -11,21 +12,24 @@ const Header = () => {
   };
 
   return (
-    <header>
-      <a href="/" className="logo">
-        <img src={logo} alt="Aeti Cleaning Service Logo" className='logo' />
-      </a>
-      
-      {/* Burger Icon */}
+    <header className="site-header">
+      <Link to="/" className="logo-link">
+        <img src={logo} alt="Aeti Cleaning Services logo" className="logo" />
+        <div>
+          <span className="brand-name">Aeti Cleaning Services</span>
+          <span className="brand-tag">Fresh spaces, simpler routines</span>
+        </div>
+      </Link>
+
       <div className="burger-icon" onClick={toggleMenu}>
-        {isMenuOpen ? <FaTimes /> : <FaBars />} {/* Toggle between burger and close icons */}
+        {isMenuOpen ? <FaTimes /> : <FaBars />}
       </div>
 
-      <nav className={isMenuOpen ? "nav-open" : ""}>
-        <a href="/">Home</a>
-        <a href="/services">Services</a>
-        <a href="/about">About</a>
-        <a href="/contact">Contact</a>
+      <nav className={isMenuOpen ? 'nav-open' : ''}>
+        <Link to="/">Home</Link>
+        <Link to="/services">Services</Link>
+        <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
       </nav>
     </header>
   );

@@ -1,70 +1,122 @@
-# Getting Started with Create React App
+# Aeti Cleaning Services Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern React-based website for Aeti Cleaning Services with updated service offerings, a polished UI, and a quote form for cleaning and laundry requests.
 
-## Available Scripts
+## Project overview
 
-In the project directory, you can run:
+This project is built with React and Create React App. It includes:
+- a modern landing page for the brand
+- updated services for carpet, rugs, upholstery, mattresses, curtains/blinds, windows, and laundry
+- a quote form with dynamic pricing logic
+- a responsive layout suitable for desktop and mobile browsing
 
-### `npm start`
+## Local development
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
+- Node.js 18+ (LTS recommended)
+- npm 9+
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Install dependencies
 
-### `npm test`
+```bash
+npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Start the local development server
 
-### `npm run build`
+```bash
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Open http://localhost:3000 to view the website locally.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Run tests
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+npm test -- --watch=false
+```
 
-### `npm run eject`
+### Build for production locally
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+npm run build
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The production build will be generated in the `build` folder.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Local deployment checklist
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Install dependencies with `npm install`.
+2. Start the app using `npm start`.
+3. Verify the site at http://localhost:3000.
+4. Run `npm test -- --watch=false`.
+5. Run `npm run build`.
+6. Review the generated `build` directory.
+7. Upload the contents of `build` to the hosting account when ready.
 
-## Learn More
+## Live deployment notes for Bisup Nepal Hosting
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Hosting details
+- Hosting package: Business
+- Domain: http://aeticleaningservices.com.au/
+- Nameserver 1: ns50.bisup.com
+- Nameserver 2: ns51.bisup.com
+- Temporary FTP host: 138.199.140.147
+- Temporary webpage URL: http://138.199.140.147/~aeticlea/
+- FTP username: aeticlea
+- Use the password provided in your Bisup hosting control panel
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Deployment method
+This project is a React single-page application, so the recommended deployment approach is:
+1. Build the app locally with `npm run build`.
+2. Upload the contents of the `build` folder to the public web directory of your hosting account.
+3. Ensure the server supports URL rewriting for client-side routes.
 
-### Code Splitting
+### Important hosting note for SPA routing
+Because this app uses React Router, the hosting server should rewrite all requests to `index.html` so routes such as `/services` and `/about` work correctly.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+A `.htaccess` file is included in the project for Apache-based hosting. Upload it alongside the build files if your hosting panel supports Apache rewriting.
 
-### Analyzing the Bundle Size
+### Recommended deployment sequence
+1. Upload the build files to the hosting root or public_html folder.
+2. Test the temporary URL first.
+3. Once the domain propagation is complete, test the live domain.
+4. Confirm the homepage and all internal routes load correctly.
+5. Verify the contact and quote form submission flow once the site is live.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Recommended content and branding notes
 
-### Making a Progressive Web App
+- Brand name should remain: Aeti Cleaning Services
+- Core services should remain aligned with the updated offerings:
+  - Carpet per room
+  - Rugs
+  - Couch/Upholstery
+  - Mattress options: Single / Double / King
+  - Curtains/Blinds (Window and Door)
+  - Window cleaning
+  - Laundry: Washing, Drying, Ironing, Folding
+  - Delivery fee: +$10
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Troubleshooting
 
-### Advanced Configuration
+### If the local app does not start
+- Make sure Node.js and npm are installed.
+- Delete `node_modules` and reinstall dependencies if necessary.
+- Run `npm install` again.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### If the live site shows a blank page
+- Confirm that all files from the `build` folder were uploaded.
+- Confirm that `.htaccess` is uploaded correctly.
+- Check that the server supports URL rewriting.
 
-### Deployment
+### If the quote form does not send
+- Verify the EmailJS configuration in the project.
+- Confirm that the service ID, template ID, and public key are valid.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Future development guidance
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Keep future changes aligned with the original business goal:
+- keep the design modern, fresh, and professional
+- preserve the updated laundry and fabric-care service offerings
+- maintain a mobile-friendly experience
+- keep deployment simple and hosting-friendly for Bisup

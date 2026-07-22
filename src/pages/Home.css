@@ -1,151 +1,264 @@
-/* src/pages/Home.css */
 .home {
-  padding: 10px;
-  background-color: #f9f9f9;
-  /* Light background */
-  text-align: center;
-  /* Center align the content */
-  padding-top: 0px;
+  padding: 0 1.5rem 3rem;
+  background: linear-gradient(180deg, #f7fbff 0%, #ffffff 100%);
+  color: #14324a;
+}
+
+.hero-section {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr;
+  gap: 2rem;
   align-items: center;
+  padding: 3rem 0 2rem;
 }
 
-.home h1 {
-  font-size: 2.5rem;
-  color: #333;
-  margin-bottom: 1rem;
-  margin-top: 0px;
+.eyebrow {
+  display: inline-flex;
+  text-transform: uppercase;
+  letter-spacing: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #1f9d8b;
+  margin-bottom: 0.75rem;
 }
 
-.home p {
-  font-size: 1.2rem;
-  color: #000000;
-  max-width: 600px;
-  margin: 1rem auto;
+.hero-copy h1,
+.section-heading h2 {
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.1;
+  margin: 0 0 1rem;
+  color: #0f2b3a;
 }
 
-.home .hero {
+.hero-text,
+.highlight-card p,
+.benefit-card p,
+.laundry-panel p,
+.booking-intro {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  color: #4f6471;
+}
+
+.hero-actions {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 15px;
-  text-align: justify;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
 
-.home .hero .heroimg {
-  display: flex;
-  flex-direction: column;
-  max-width: 75%;
-  height: 10%;
+.primary-btn,
+.secondary-btn {
+  border-radius: 999px;
+  padding: 0.9rem 1.3rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
-.reason {
-  padding: 0;
-}
-
-.home .rescont {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-}
-
-.home .resimg {
-  display: flex;
-  flex-direction: column;
-  border-radius: 30px;
-  max-width: 100%;
-  max-height: 90%;
-}
-
-.home .comcont {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-}
-
-.home .comimg {
-  display: flex;
-  flex-direction: column;
-  border-radius: 30px;
-  max-width: 100%;
-  max-height: 90%;
-}
-
-.home .deepcont {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-}
-
-.home .deepimg {
-  display: flex;
-  flex-direction: column;
-  border-radius: 30px;
-  max-width: 100%;
-  max-height: 90%;
-}
-
-.home .description {
-  margin: 15px;
-  max-width: 100%;
-  text-align: justify;
-}
-
-.home .points {
-  text-align: justify;
-  max-width: 85%;
-  margin: 10px;
-}
-
-.home button {
-  background-color: #c50a0a;
-  /* Dark Red background */
-  color: white;
-  padding: 10px 20px;
+.primary-btn {
+  background: linear-gradient(135deg, #0f8d7d, #1bbf9a);
+  color: #fff;
   border: none;
-  border-radius: 5px;
-  font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
-.home button:hover {
-  background-color: #ff0808;
-  /* Darker red on hover */
+.secondary-btn {
+  background: #fff;
+  color: #0f2b3a;
+  box-shadow: 0 10px 30px rgba(15, 43, 58, 0.08);
 }
 
-@media (max-width: 768px) {
-  .home .hero .heroimg {
-    max-width: 100%;
+.primary-btn:hover,
+.secondary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(15, 43, 58, 0.14);
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.hero-stats div {
+  padding: 0.85rem 1rem;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(16, 43, 58, 0.08);
+  min-width: 110px;
+}
+
+.hero-stats strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #0f8d7d;
+}
+
+.hero-stats span {
+  font-size: 0.9rem;
+  color: #4f6471;
+}
+
+.hero-card,
+.highlight-card,
+.benefit-card,
+.laundry-card,
+.service-card {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 16px 40px rgba(15, 43, 58, 0.08);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.hero-card:hover,
+.highlight-card:hover,
+.benefit-card:hover,
+.laundry-card:hover,
+.service-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 22px 48px rgba(15, 43, 58, 0.14);
+  border: 1px solid #bce9de;
+}
+
+.hero-card img {
+  display: block;
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.hero-card-body {
+  padding: 1.3rem;
+}
+
+.hero-card h3 {
+  margin: 0.2rem 0 0.6rem;
+  color: #0f2b3a;
+}
+
+.section {
+  padding: 2rem 0 1rem;
+}
+
+.section-heading {
+  max-width: 720px;
+  margin-bottom: 1.3rem;
+}
+
+.highlights-grid,
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.highlight-card,
+.benefit-card {
+  padding: 1.4rem;
+}
+
+.highlight-icon {
+  font-size: 1.7rem;
+  margin-bottom: 0.8rem;
+}
+
+.highlight-card h3,
+.benefit-card h3 {
+  margin: 0 0 0.55rem;
+  color: #0f2b3a;
+}
+
+.accent-section {
+  margin-top: 1rem;
+}
+
+.laundry-panel {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.laundry-intro {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #4f6471;
+  margin-bottom: 1rem;
+}
+
+.laundry-services {
+  margin-top: 1.5rem;
+}
+
+.laundry-services h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f2b3a;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.laundry-services ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.laundry-services li {
+  padding: 0.6rem 0.9rem;
+  background: rgba(15, 141, 125, 0.08);
+  border-left: 3px solid #0f8d7d;
+  color: #0f2b3a;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+.laundry-card {
+  padding: 1.4rem;
+  border: 1px solid #daf5ee;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.laundry-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 0.3rem;
+}
+
+.booking-section {
+  padding-bottom: 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .hero-section,
+  .laundry-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .home {
+    padding: 0 1rem 2rem;
   }
 
-  .home .rescont {
-    display: flex;
+  .hero-section {
+    padding-top: 1.5rem;
+  }
+
+  .hero-stats {
     flex-direction: column;
-    align-items: center;
-  }
-
-  .rescont .resimg {
-    width: 85%;
-    height: auto;
-  }
-
-  .home .comcont {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .comcont .comimg {
-    width: 85%;
-    height: auto;
-  }
-
-  .home .deepcont {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .deepcont .deepimg {
-    width: 85%;
-    height: auto;
   }
 }
 
